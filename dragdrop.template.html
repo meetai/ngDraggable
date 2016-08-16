@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="container" ng-controller="Controller">
+        <div class="row">
+            <div class="col-md-12 text-center"><h3>Drag &amp; Drop Pick List</h3></div>
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="list-group" id="list1" x-lvl-drop-target="true" x-on-drop="drop(dragEl, dropEl, bToA)">
+                    <a href="javascript:;" class="list-group-item active">Staff
+                        <input title="Toggle all" ng-click="toggleA()" ng-model="toggle" value="{{toggle}}" type="checkbox" class="pull-right"></a>
+                <span ng-repeat="user in listA">
+                  <a href="javascript:;" data-id="{{user.id}}" x-lvl-draggable="true" class="list-group-item">{{user.firstName}}
+                      <small class="text-muted"><em>{{user.role}}</em></small>
+                      <input id="{{user.id}}" ng-click="selectedA.push(user.id)" name="selectedA[]" value="{{user.id}}" ng-checked="selectedA.indexOf(user.id) > -1" type="checkbox" class="pull-right">
+                  </a>
+                </span>
+                </div>
+            </div><!--/col-4-->
+            <div class="col-md-2 v-center text-center">
+                <div class="btn-group">
+                    <button title="Send to list 1" class="btn btn-default" ng-click="bToA()" id="btnA"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                    <button title="Send to list 2" class="btn btn-default" ng-click="aToB()" id="btnB"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+                <h6 class="text-center">move from list-to-list</h6>
+            </div><!--/col-2-->
+            <div class="col-sm-4">
+                <div class="list-group" id="list2" x-lvl-drop-target="true" x-on-drop="drop(dragEl, dropEl, aToB)">
+                    <a href="javascript:;" class="list-group-item active">Team Members
+                        <input title="Toggle all" ng-click="toggleB()" ng-model="toggle" value="{{toggle}}" type="checkbox" class="pull-right">
+                    </a>
+                <span ng-repeat="user in listB">
+                  <a href="javascript:;" data-id="{{user.id}}" class="list-group-item" x-lvl-draggable="true">{{user.firstName}}
+                      <small class="text-muted"><em>{{user.role}}</em></small>
+                      <input id="{{user.id}}" ng-click="selectedB.push(user.id)" name="selectedB[]" value="{{user.id}}" ng-checked="selectedB.indexOf(user.id) > -1" type="checkbox" class="pull-right">
+                  </a>
+                </span>
+                </div>
+            </div><!--/col-4-->
+        </div><!--/row-->
+    </div><!--/container-->
+
+    <hr>
+    <a href="http://www.bootply.com/mW09b0bQcE">Edit on Bootply</a>
+
+</div><!--/container-fluid-->
+
+
+
